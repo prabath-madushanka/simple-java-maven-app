@@ -11,20 +11,5 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-        stage('Test') {
-            steps {
-                
-            }
-            post {
-                always {
-                    
-                }
-            }
-        }
-        stage('Deliver') {
-            steps {
-                
-            }
-        }
     }
 }
