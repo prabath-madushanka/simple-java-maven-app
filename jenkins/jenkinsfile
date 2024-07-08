@@ -1,12 +1,15 @@
 pipeline {
     agent {
         docker {
-            image 'madu87online/custom-maven-java-git:v1' 
+            image 'madu87online/custom-maven-java-git:v1'
+            args '-e DOCKER_HOST=tcp://socat-docker:2375'
         }
     }
     stages {
         stage('Build') {
             steps {
+                sh 'docker --version' // Ensure Docker is available
+                sh 'mvn --version'    // Ensure Maven is available
                 sh 'mvn --version'
                 sh 'mvn clean install'
             }
